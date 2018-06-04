@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport">
+<meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="viewport" content="width=device-width, height=device-height" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="stylesheet" type="text/css" href="style/css/zongzi.css">
+<title>放“粽”切咸蛋</title>
+</head>
+<body>
+	<!--游戏音乐-->
+	<div class="hide" id="music">
+		<audio src="style/music/leftRightHand.mp3" preload=""  id="backgroundMusic" class='hide'></audio>
+	</div>	
+	
+	<div class="mobile">	
+		<!--游戏主页面-->
+		<section class="main" id="main">
+			<div class="page page1" id="page1">
+				<img src="style/images/timer.png" width="10%" class="pos0 top3" />
+				<!--5秒钟倒计时特效-->
+				<div class="countdownTime">
+					<ul class="second">
+						<li>5</li><li>4</li><li>3</li><li>2</li><li>1</li><li>0</li>
+					</ul>
+					<span class="unit">'</span>
+					<ul class="msecond">
+						<li>0</li><li>9</li><li>8</li><li>7</li><li>6</li><li>5</li><li>4</li>
+						<li>3</li><li>2</li><li>1</li><li>0</li><li>9</li><li>8</li><li>7</li>
+						<li>6</li><li>5</li><li>4</li><li>3</li><li>2</li><li>1</li><li>0</li>
+						<li>9</li><li>8</li><li>7</li><li>6</li><li>5</li><li>4</li><li>3</li>
+						<li>2</li><li>1</li><li>0</li><li>9</li><li>8</li><li>7</li><li>6</li>
+						<li>5</li><li>4</li><li>3</li><li>2</li><li>1</li><li>0</li><li>9</li>
+						<li>8</li><li>7</li><li>6</li><li>5</li><li>4</li><li>3</li><li>2</li>
+						<li>1</li><li>0</li>
+					</ul>
+					<span class="unit">''<b id="count" style="margin-left:0.5rem;color: #F0DC36;"></b></span>					
+				</div>
+				<!--粽子显示div-->
+				<div class="zongzi">
+					<ul class="zongziStage">
+						<li class="picState hide" id="picState1"><i class="inStagePic inStagePic1"></i></li>
+						<li class="picState hide" id="picState2"><i class="inStagePic inStagePic2"></i></li>
+						<li class="picState zIndex" id="picState3"><i class="inStagePic inStagePic3"></i></li>						
+					</ul>
+				</div>
+				<!--左手右手按钮-->
+				<div class="leftHandBtn"></div><div class="rightHandBtn"></div>							
+			</div>
+			<!--结果页-->
+			<div class="page page2">
+				<div class="zongziCartoon">
+					<p class="zongziCartoonIn2"></p>
+				</div>
+				<p class="text"></p>
+				<p class="resultText"><!--咸蛋已重伤，送往ICU~--></p>
+				<!--抽奖/再来一次/分享按钮-->
+				<div style="width:0;" id="btnshow">
+					<button id="lottery" style="margin-top:2.5% ;"><img src="style/images/button02.png" width="70%"></button>
+					<button id="againBtn"><img src="style/images/button01.png" width="70%"></button>
+					<button id="shareeatbtn"><img src="style/images/button03.png" width="70%"></button>
+				</div>
+			</div>			
+		</section>
+		<!--游戏首页面-->
+		<section class="index" id="index">
+			<div onclick="rulesButton();" class="rulesButton">活动<br>规则</div>
+			<img src="style/images/guang.png" width="100%" class="pos0 top1"/>
+			<img src="style/images/03.png" width="90%" class="mar0"/>			
+			<div class="mar1" onclick="gameStart();"><img src="style/images/button00.png" width="80%"></div>
+		</section>
+		<!--游戏321倒计时进入开始玩游戏-->
+		<section class="cover" id="cover">
+			<div class="inCover">3</div>
+			<div class="guideBtn">				
+				<div class="btnthis mar02">点这里</div>
+				<div class="btnthis">点这里</div>				
+			</div>			
+		</section>
+		<!--游戏规则 -->
+		<section class="ruleDiv0" id="guize">
+			<img onclick="closeRule();" src="style/images/Close.png" width="10%" class="pos0 top2"/>						
+			<div style="font-size: 0.3rem;font-weight: bold;padding: 10% 10% 2.5%;text-align: center;">活动规则</div>
+			<div style="padding: 0% 5% 5%;font-size:0.13rem;line-height: 0.25rem;">
+				<p>1、无需关注“中国电信江苏客服”微信公众号即可参与游戏；</p>
+				<p>2、活动期间用户每小时最多可参与3次游戏；</p>
+				<p>3、中奖后需关联江苏天翼手机号码，以便我们联系您发放奖品，否则视为用户自动放弃；</p>
+				<p>4、本次活动奖品均为实物奖品，客服妹子会在活动结束后的24小时内联系用户，确认奖品邮寄地址等相关信息，不同时间段电话联系用户3次若均无人接听，视为用户主动放弃；</p>
+				<p>5、实物奖品颜色随机；</p>
+				<p>6、以非正常操作获得的奖励，在国家法律法规允许的范围内，活动方有权取消相关获奖资格。</p>
+			</div>
+			<img src="style/images/egg00.png" width="30%" style="margin-left: 60%;"/>
+		</section>
+		<!--游戏分享页面-->
+		<section class="shareCover">
+			<div class="shareShowHide" style="display: none;">
+				<img src="style/images/share.png" width="90%" class="inShareCover"></div>
+				<div class="inShareCover2"> 返回</div>
+			</div>
+		</section>
+		<!--抽奖弹框页面,3种情况：
+			1：恭喜您！           中得***一个，请注意查收本公众号推送的相关中奖及领奖信息!
+			2：对不起!       每小时最多抽奖3次，请一小时后再来~
+			3：啥都没中!		 不要卖萌了，换个姿势再来一次~
+		-->
+		<section class="lotteryCover">
+			<img src="style/images/Close.png" width="10%" class="closeLogo" />
+			<div class="whiteDiv">				
+				<p class="lotteryTitile">恭喜您!</p>					
+				<!--<p class="lotteryTitile">对不起!</p>-->
+				<!--<p class="lotteryTitile">啥都没中!</p>-->
+				<div class="lotteryDetails">中得<span>运动手环</span>一个，请注意查收本公众号推送的相关中奖及领奖信息!</div>
+				<!--<div class="lotteryDetails">每小时最多抽奖3次，请一小时后再来~</div>-->
+				<!--<div class="lotteryDetails">不要卖萌了，换个姿势再来一次~</div>-->
+				<div class="inlotteryCover2">返回公众号</div>
+			</div>
+		</section>
+	</div>
+	<script type="text/javascript" src="js/fx.min.js"></script><!--zepto动画插件-->
+	<script type="text/javascript" src="js/zongzi.js?v=zz"></script>
+	<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+</body>
+</html>
+
